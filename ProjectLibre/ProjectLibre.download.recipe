@@ -3,40 +3,42 @@
 <plist version="1.0">
 <dict>
     <key>Description</key>
-    <string>Downloads the latest version of EndNote for Windows.</string>
+    <string>Downloads ProjectLibre for Mac.</string>
+    <key>MinimumVersion</key>
+    <string>0.2.9</string>
     <key>Identifier</key>
-    <string>com.github.hansen-m.download.EndNote-Win</string>
+    <string>com.github.hansen-m.download.ProjectLibre</string>
     <key>Input</key>
     <dict>
         <key>NAME</key>
-        <string>EndNote</string>
-        <key>ENDNOTE_MAJOR_VERSION</key>
-        <string>X8</string>
-        <key>DOWNLOAD_URL</key>
-        <string>http://download.endnote.com/downloads/%ENDNOTE_MAJOR_VERSION%/EN%ENDNOTE_MAJOR_VERSION%Inst.msi</string>
-    </dict>
-    <key>MinimumVersion</key>
-    <string>0.2.0</string>
+        <string>ProjectLibre</string>
+        <key>SOURCEFORGE_FILE_PATTERN</key>
+        <string>ProjectLibre-[0-9\.]*\.dmg</string>
+        <key>SOURCEFORGE_PROJECT_ID</key>
+        <string>715892</string>
+		</dict>
     <key>Process</key>
     <array>
+        <dict>
+            <key>Processor</key>
+            <string>com.github.jessepeterson.munki.GrandPerspective/SourceForgeURLProvider</string>
+        </dict>
         <dict>
             <key>Processor</key>
             <string>URLDownloader</string>
             <key>Arguments</key>
             <dict>
-                <key>url</key>
-                <string>%DOWNLOAD_URL%</string>
                 <key>filename</key>
-                <string>%NAME%.msi</string>
+                <string>%NAME%.dmg</string>
             </dict>
         </dict>
         <dict>
             <key>Processor</key>
-            <string>com.github.hansen-m.SharedProcessors/MSIVersionProvider</string>
+            <string>Versioner</string>
             <key>Arguments</key>
             <dict>
-                <key>msi_path</key>
-                <string>%pathname%</string>
+                <key>input_plist_path</key>
+                <string>%pathname%/ProjectLibre.app/Contents/Info.plist</string>
             </dict>
         </dict>
         <dict>

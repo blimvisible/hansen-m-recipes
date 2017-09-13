@@ -3,38 +3,27 @@
 <plist version="1.0">
 <dict>
     <key>Description</key>
-    <string>Downloads the latest version of Cycling74 Soundflower.</string>
+    <string>Downloads the latest version of Kolor GoPro VR Player for Windows.</string>
     <key>Identifier</key>
-    <string>com.github.hansen-m.download.Soundflower</string>
+    <string>com.github.hansen-m.download.GoProVRPlayer-Win</string>
     <key>Input</key>
     <dict>
         <key>NAME</key>
-        <string>Soundflower</string>
-        <key>GITHUB_REPO</key>
-        <string>mattingalls/Soundflower</string>
+        <string>GoPro VR Player</string>
+        <key>url</key>
+        <string>http://download.kolor.com/ked/stable/x64</string>
     </dict>
     <key>MinimumVersion</key>
-    <string>1.0.0</string>
+    <string>0.2.9</string>
     <key>Process</key>
     <array>
-        <dict>
-            <key>Arguments</key>
-            <dict>
-                <key>github_repo</key>
-                <string>%GITHUB_REPO%</string>
-                <key>include_prereleases</key>
-                <string>true</string>
-            </dict>
-            <key>Processor</key>
-            <string>GitHubReleasesInfoProvider</string>
-        </dict>
         <dict>
             <key>Processor</key>
             <string>URLDownloader</string>
             <key>Arguments</key>
             <dict>
                 <key>filename</key>
-                <string>%NAME%-%version%.dmg</string>
+                <string>%NAME%.exe</string>
             </dict>
         </dict>
         <dict>

@@ -3,17 +3,17 @@
 <plist version="1.0">
 <dict>
     <key>Description</key>
-    <string>Downloads the latest version of EndNote for Windows.</string>
+    <string>Downloads the latest version of EndNote for OS X.</string>
     <key>Identifier</key>
-    <string>com.github.hansen-m.download.EndNote-Win</string>
+    <string>com.github.hansen-m.download.EndNoteX7</string>
     <key>Input</key>
     <dict>
         <key>NAME</key>
         <string>EndNote</string>
         <key>ENDNOTE_MAJOR_VERSION</key>
-        <string>X8</string>
+        <string>X7</string>
         <key>DOWNLOAD_URL</key>
-        <string>http://download.endnote.com/downloads/%ENDNOTE_MAJOR_VERSION%/EN%ENDNOTE_MAJOR_VERSION%Inst.msi</string>
+        <string>http://download.endnote.com/downloads/%ENDNOTE_MAJOR_VERSION%/EndNote%ENDNOTE_MAJOR_VERSION%Installer.dmg</string>
     </dict>
     <key>MinimumVersion</key>
     <string>0.2.0</string>
@@ -27,16 +27,7 @@
                 <key>url</key>
                 <string>%DOWNLOAD_URL%</string>
                 <key>filename</key>
-                <string>%NAME%.msi</string>
-            </dict>
-        </dict>
-        <dict>
-            <key>Processor</key>
-            <string>com.github.hansen-m.SharedProcessors/MSIVersionProvider</string>
-            <key>Arguments</key>
-            <dict>
-                <key>msi_path</key>
-                <string>%pathname%</string>
+                <string>%NAME%.dmg</string>
             </dict>
         </dict>
         <dict>

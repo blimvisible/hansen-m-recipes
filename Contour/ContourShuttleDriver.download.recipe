@@ -3,31 +3,31 @@
 <plist version="1.0">
 <dict>
     <key>Description</key>
-    <string>Downloads the latest version SAOImageDS9.</string>
+    <string>Downloads the latest version of the Contour Shuttle Driver.</string>
     <key>Identifier</key>
-    <string>com.github.hansen-m.download.SAOImageDS9</string>
+    <string>com.github.hansen-m.download.ContourShuttleDriver</string>
     <key>Input</key>
     <dict>
         <key>NAME</key>
-        <string>SAOImageDS9</string>
-        <key>SAO_OS_KEY</key>
-        <string>darwinmavericks</string>
+        <string>Contour Shuttle Driver</string>
         <key>SEARCH_URL</key>
-        <string>http://ds9.si.edu/download</string>
+        <string>https://www.contourdesign.com/support/drivers/</string>
+        <key>SEARCH_PATTERN</key>
+        <string>(?P&lt;url&gt;https://www.contourdesign.com/wp-content/uploads/[0-9.]+/[0-9.]+/Contour-Shuttle-(?P&lt;version&gt;[0-9.]+)\.zip)</string>
     </dict>
     <key>MinimumVersion</key>
-    <string>0.2.9</string>
+    <string>0.4.0</string>
     <key>Process</key>
     <array>
-       <dict>
+        <dict>
             <key>Processor</key>
             <string>URLTextSearcher</string>
             <key>Arguments</key>
             <dict>
                 <key>url</key>
-                <string>%SEARCH_URL%/%SAO_OS_KEY%/?C=M;O=D</string>
+                <string>%SEARCH_URL%</string>
                 <key>re_pattern</key>
-                <string>(?P&lt;tar_gz_file&gt;ds9\.%SAO_OS_KEY%\.(?P&lt;version&gt;.*?)\.tar.gz)</string>
+                <string>%SEARCH_PATTERN%</string>
             </dict>
         </dict>
         <dict>
@@ -36,9 +36,9 @@
             <key>Arguments</key>
             <dict>
                 <key>url</key>
-                <string>%SEARCH_URL%/%SAO_OS_KEY%/%tar_gz_file%</string>
+                <string>%url%</string>
                 <key>filename</key>
-                <string>%NAME%-%SAO_OS_KEY%.tar.gz</string>
+                <string>Contour-Shuttle-Driver.zip</string>
             </dict>
         </dict>
         <dict>

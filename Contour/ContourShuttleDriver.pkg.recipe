@@ -3,38 +3,41 @@
 <plist version="1.0">
 <dict>
     <key>Description</key>
-    <string>Downloads the latest version of MacTeX.</string>
+    <string>Downloads the latest version of the Contour Shuttle Driver.</string>
     <key>Identifier</key>
-    <string>com.github.hansen-m.download.MacTeX</string>
+    <string>com.github.hansen-m.pkg.ContourShuttleDriver</string>
     <key>Input</key>
     <dict>
         <key>NAME</key>
-        <string>MacTeX</string>
-        <key>DOWNLOADPAGE_URL</key>
-        <string>http://www.tug.org/mactex/mactex-download.html</string>
+        <string>Contour Shuttle Driver</string>
     </dict>
     <key>MinimumVersion</key>
-    <string>0.2.0</string>
+    <string>0.4.0</string>
+    <key>ParentRecipe</key>
+    <string>com.github.hansen-m.download.ContourShuttleDriver</string>
     <key>Process</key>
     <array>
         <dict>
             <key>Processor</key>
-            <string>URLTextSearcher</string>
-            <key>Arguments</key>
-            <dict>
-                <key>url</key>
-                <string>%DOWNLOADPAGE_URL%</string>
-                <key>re_pattern</key>
-                <string>http*.*MacTeX.pkg</string>
-            </dict>
+            <string>Unarchiver</string>
         </dict>
         <dict>
             <key>Processor</key>
-            <string>URLDownloader</string>
+            <string>FileFinder</string>
             <key>Arguments</key>
             <dict>
-                <key>url</key>
-                <string>%match%</string>
+                <key>pattern</key>
+                <string>%RECIPE_CACHE_DIR%/%NAME%/*.dmg</string>
+            </dict>
+        </dict>
+
+        <dict>
+            <key>Processor</key>
+            <string>PkgCopier</string>
+            <key>Arguments</key>
+            <dict>
+                <key>source_pkg</key>
+                <string>%found_filename%/Contour Shuttle.pkg</string>
             </dict>
         </dict>
         <dict>
@@ -44,4 +47,3 @@
     </array>
 </dict>
 </plist>
-
